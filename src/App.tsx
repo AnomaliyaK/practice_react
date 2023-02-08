@@ -31,10 +31,22 @@ export const App = () => {
   };
   return (
     <div>
-      <Header name={user.name} userName={user.username} email={user.email} />
-      <Main userAddressInfo={user.address} />
-      <Aside userAddressInfo={user.address} />
-      console.log(userAddressInfo)
+      <Header
+        userInfo={{
+          name: user.name,
+          username: user.username,
+          email: user.email,
+        }}
+      />
+      <Main userGeoInfo={user.address.geo} />
+      <Aside
+        userAddressInfo={{
+          street: user.address.street,
+          suite: user.address.suite,
+          city: user.address.city,
+          zipcode: user.address.zipcode,
+        }}
+      />
       <Footer userCompanyInfo={user.company} />
     </div>
   );
